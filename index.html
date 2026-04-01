@@ -1,632 +1,456 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kamile Varnelytė - Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
 
-    <script>
-      const themeConfig = {
-        primary: "#7D1538",
-        primaryDark: "#818cf8",
-        accent: "#06b6d4",
-        bgLight: "#f9fafb",
-        bgDark: "#030712",
-        cardLight: "#ffffff",
-        cardDark: "#111827",
-        bodyFont: '"Inter", sans-serif',
-      };
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kamile Varnelytė - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: themeConfig.bodyFont.split(","),
+  <script>
+    const themeConfig = {
+      primary: "#7D1538",
+      primaryDark: "#818cf8",
+      accent: "#06b6d4",
+      bgLight: "#f9fafb",
+      bgDark: "#030712",
+      cardLight: "#ffffff",
+      cardDark: "#111827",
+      bodyFont: '"Inter", sans-serif',
+    };
+
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: themeConfig.bodyFont.split(","),
+          },
+          colors: {
+            brand: {
+              primary: themeConfig.primary,
+              primaryDark: themeConfig.primaryDark,
+              accent: themeConfig.accent,
             },
-            colors: {
-              brand: {
-                primary: themeConfig.primary,
-                primaryDark: themeConfig.primaryDark,
-                accent: themeConfig.accent,
-              },
-              background: {
-                light: themeConfig.bgLight,
-                dark: themeConfig.bgDark,
-              },
-              surface: {
-                light: themeConfig.cardLight,
-                dark: themeConfig.cardDark,
-              },
+            background: {
+              light: themeConfig.bgLight,
+              dark: themeConfig.bgDark,
+            },
+            surface: {
+              light: themeConfig.cardLight,
+              dark: themeConfig.cardDark,
             },
           },
         },
-      };
-    </script>
+      },
+    };
+  </script>
 
-    <style>
-      html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 5rem;
-      }
-      /* Prevent scrolling when modal is open */
-      .modal-open {
-        overflow: hidden;
-      }
-    </style>
+  <style>
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5rem;
+    }
 
-    <!-- Dark Mode Init -->
-    <script>
-      if (
-        localStorage.theme === "dark" ||
-        (!("theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-    </script>
-  </head>
+    /* Prevent scrolling when modal is open */
+    .modal-open {
+      overflow: hidden;
+    }
+  </style>
 
-  <body
-    class="bg-background-light text-gray-800 font-sans transition-colors duration-300 dark:bg-background-dark dark:text-gray-100"
-  >
-    <!-- Navigation -->
-    <nav
-      class="sticky top-0 z-40 bg-surface-light/90 backdrop-blur-sm p-4 border-b border-gray-100 dark:border-gray-800 dark:bg-surface-dark/90"
-    >
-      <div class="container mx-auto flex justify-end items-center max-w-6xl">
-        <div class="flex items-center space-x-6">
-          <div class="hidden md:flex space-x-6">
-            <a
-              href="#about"
-              class="hover:text-brand-primary dark:hover:text-brand-primaryDark font-medium transition-colors"
-              >About</a
-            >
-            <a
-              href="#skills"
-              class="hover:text-brand-primary dark:hover:text-brand-primaryDark font-medium transition-colors"
-              >Skills</a
-            >
-            <a
-              href="#portfolio"
-              class="hover:text-brand-primary dark:hover:text-brand-primaryDark font-medium transition-colors"
-              >Portfolio</a
-            >
-          </div>
+  <!-- Dark Mode Init -->
+  <script>
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: light)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  </script>
+</head>
 
-          <!-- Theme Toggle -->
-          <button
-            id="theme-toggle"
-            class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none"
-          >
-            <svg
-              class="w-5 h-5 hidden dark:block text-brand-primaryDark"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.325 5.5l-.707-.707M6.382 6.382l-.707-.707m12.728 0l-.707.707M6.382 17.618l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-              ></path>
-            </svg>
-            <svg
-              class="w-5 h-5 block dark:hidden text-brand-primary"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-              ></path>
-            </svg>
-          </button>
+<body
+  class="bg-background-light text-gray-800 font-sans transition-colors duration-300 dark:bg-background-dark dark:text-gray-100">
+  <!-- Navigation -->
+  <nav
+    class="sticky top-0 z-40 bg-surface-light/90 backdrop-blur-sm p-4 border-b border-gray-100 dark:border-gray-800 dark:bg-surface-dark/90">
+    <div class="container mx-auto flex justify-end items-center max-w-6xl">
+      <div class="flex items-center space-x-6">
+        <div class="hidden md:flex space-x-6">
+          <a href="#about"
+            class="hover:text-brand-primary dark:hover:text-brand-primaryDark font-medium transition-colors">About</a>
+          <a href="#skills"
+            class="hover:text-brand-primary dark:hover:text-brand-primaryDark font-medium transition-colors">Skills</a>
+          <a href="#portfolio"
+            class="hover:text-brand-primary dark:hover:text-brand-primaryDark font-medium transition-colors">Portfolio</a>
         </div>
-      </div>
-    </nav>
 
-    <main class="container mx-auto p-6 md:p-8 max-w-6xl">
-      <!-- About Section -->
-      <section id="about" class="relative mb-20 overflow-hidden">
-        <!-- Decorative Background Glow (Optional subtle touch) -->
-        <div
-          class="absolute top-0 -left-20 w-64 h-64 bg-brand-primary/5 rounded-full blur-3xl -z-10"
-        ></div>
-
-        <div
-          class="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-20"
-        >
-          <!-- Image Column with Unique "Frame" Style -->
-          <div class="relative group flex-shrink-0">
-            <!-- The "Offset" Background behind the image -->
-            <div
-              class="absolute -inset-3 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl -rotate-3 group-hover:rotate-0 transition-transform duration-500 ease-out"
-            ></div>
-
-            <!-- The Image with 12px (rounded-xl) radius -->
-            <div
-              class="relative overflow-hidden rounded-xl shadow-2xl border border-white/20 dark:border-gray-800"
-            >
-              <img
-                src="https://via.placeholder.com/400x500"
-                alt="Profile"
-                class="w-64 h-80 object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 hover:scale-100"
-              />
-            </div>
-
-            <!-- Small floating badge -->
-            <div
-              class="absolute -bottom-4 -right-4 bg-brand-primary text-white px-4 py-2 rounded-lg shadow-xl font-bold text-sm"
-            >
-              Available for Hire
-            </div>
-          </div>
-
-          <!-- Text Content Column -->
-          <div class="flex-1 text-center lg:text-left">
-            <span
-              class="inline-block text-brand-primary dark:text-brand-primaryDark font-bold tracking-widest uppercase text-sm mb-3"
-            >
-              Biography
-            </span>
-            <h2 class="text-5xl lg:text-6xl font-black mb-6 leading-tight">
-              Turning Vision <br />
-              <span
-                class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-accent dark:from-brand-primaryDark dark:to-brand-accent"
-              >
-                Into Reality.
-              </span>
-            </h2>
-
-            <p
-              class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mb-8"
-            >
-              Hello! I'm
-              <span class="text-gray-900 dark:text-white font-semibold"
-                >Kamile Varnelytė</span
-              >, a software architect specializing in building digital products
-              that balance aesthetics with industrial-grade performance.
-            </p>
-
-            <!-- Unique Stats/Highlights Grid -->
-            <div
-              class="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-6 border-t border-gray-200 dark:border-gray-800"
-            >
-              <div>
-                <span
-                  class="block text-3xl font-black text-brand-primary dark:text-brand-primaryDark"
-                  >5+</span
-                >
-                <span
-                  class="text-sm text-gray-500 uppercase font-bold tracking-tighter"
-                  >Years Exp.</span
-                >
-              </div>
-              <div>
-                <span
-                  class="block text-3xl font-black text-brand-primary dark:text-brand-primaryDark"
-                  >40+</span
-                >
-                <span
-                  class="text-sm text-gray-500 uppercase font-bold tracking-tighter"
-                  >Projects Done</span
-                >
-              </div>
-              <div>
-                <span
-                  class="block text-3xl font-black text-brand-primary dark:text-brand-primaryDark"
-                  >12</span
-                >
-                <span
-                  class="text-sm text-gray-500 uppercase font-bold tracking-tighter"
-                  >Global Clients</span
-                >
-              </div>
-            </div>
-
-            <!-- Social Links/Actions -->
-            <div
-              class="mt-10 flex flex-wrap justify-center lg:justify-start gap-4"
-            >
-              <a
-                href="#contact"
-                class="px-8 py-3 bg-brand-primary text-white rounded-xl font-bold hover:shadow-lg hover:shadow-brand-primary/30 transition-all active:scale-95"
-              >
-                Download Resume
-              </a>
-              <div class="flex items-center space-x-4 ml-2">
-                <a
-                  href="#"
-                  class="text-gray-400 hover:text-brand-primary transition-colors"
-                >
-                  <span class="sr-only">LinkedIn</span>
-                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href="#"
-                  class="text-gray-400 hover:text-brand-primary transition-colors"
-                >
-                  <span class="sr-only">GitHub</span>
-                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.744.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Skills Section -->
-      <section id="skills" class="mb-12">
-        <h2
-          class="text-4xl font-bold text-center mb-8 text-brand-primary dark:text-brand-primaryDark"
-        >
-          Skills
-        </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-          <!-- Skill Card -->
-          <div
-            class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl text-center border border-gray-100 dark:border-gray-800 hover:border-brand-primary transition-all"
-          >
-            <div
-              class="text-brand-primary dark:text-brand-primaryDark font-bold text-lg mb-2"
-            >
-              Frontend
-            </div>
-            <p class="text-sm text-gray-500">React, Vue, Tailwind</p>
-          </div>
-          <div
-            class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl text-center border border-gray-100 dark:border-gray-800 hover:border-brand-primary transition-all"
-          >
-            <div
-              class="text-brand-primary dark:text-brand-primaryDark font-bold text-lg mb-2"
-            >
-              Backend
-            </div>
-            <p class="text-sm text-gray-500">Node, Python, Go</p>
-          </div>
-          <div
-            class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl text-center border border-gray-100 dark:border-gray-800 hover:border-brand-primary transition-all"
-          >
-            <div
-              class="text-brand-primary dark:text-brand-primaryDark font-bold text-lg mb-2"
-            >
-              Design
-            </div>
-            <p class="text-sm text-gray-500">Figma, Adobe XD</p>
-          </div>
-          <div
-            class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl text-center border border-gray-100 dark:border-gray-800 hover:border-brand-primary transition-all"
-          >
-            <div
-              class="text-brand-primary dark:text-brand-primaryDark font-bold text-lg mb-2"
-            >
-              Data
-            </div>
-            <p class="text-sm text-gray-500">Postgres, Redis</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Portfolio Section -->
-      <section id="portfolio" class="mb-12">
-        <h2
-          class="text-4xl font-bold text-center mb-8 text-brand-primary dark:text-brand-primaryDark"
-        >
-          Project Highlights
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- IMAGE PROJECT ITEM -->
-          <div
-            class="group bg-surface-light dark:bg-surface-dark rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all"
-          >
-            <div
-              class="relative h-64 overflow-hidden cursor-zoom-in"
-              onclick="
-                openLightbox(
-                  'https://images.unsplash.com/photo-1498050108023-c5249f4df085',
-                  'image',
-                )
-              "
-            >
-              <img
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                alt="Dev Project"
-              />
-              <div
-                class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-              >
-                <svg
-                  class="w-10 h-10 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-2xl font-bold mb-2">Web Application</h3>
-              <p class="text-gray-600 dark:text-gray-400 mb-4">
-                Click the image to expand the view.
-              </p>
-            </div>
-          </div>
-
-          <!-- VIDEO PROJECT ITEM -->
-          <div
-            class="group bg-surface-light dark:bg-surface-dark rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all"
-          >
-            <div
-              class="relative h-64 overflow-hidden cursor-zoom-in"
-              onclick="
-                openLightbox(
-                  'https://www.w3schools.com/html/mov_bbb.mp4',
-                  'video',
-                )
-              "
-            >
-              <!-- Video Thumbnail/Preview -->
-              <video muted loop autoplay class="w-full h-full object-cover">
-                <source
-                  src="https://www.w3schools.com/html/mov_bbb.mp4"
-                  type="video/mp4"
-                />
-              </video>
-              <div
-                class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-              >
-                <svg
-                  class="w-12 h-12 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-2xl font-bold mb-2">Motion Graphics</h3>
-              <p class="text-gray-600 dark:text-gray-400 mb-4">
-                Click the video to expand and hear sound.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="portfolio" class="mb-12">
-        <h2
-          class="text-4xl font-bold text-center mb-8 text-brand-primary dark:text-brand-primaryDark"
-        >
-          Games Highlights
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- IMAGE PROJECT ITEM -->
-          <div
-            class="group bg-surface-light dark:bg-surface-dark rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all"
-          >
-            <div
-              class="relative h-64 overflow-hidden cursor-zoom-in"
-              onclick="
-                openLightbox(
-                  'https://images.unsplash.com/photo-1498050108023-c5249f4df085',
-                  'image',
-                )
-              "
-            >
-              <img
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                alt="Dev Project"
-              />
-              <div
-                class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-              >
-                <svg
-                  class="w-10 h-10 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-2xl font-bold mb-2">Web Application</h3>
-              <p class="text-gray-600 dark:text-gray-400 mb-4">
-                Click the image to expand the view.
-              </p>
-            </div>
-          </div>
-
-          <!-- VIDEO PROJECT ITEM -->
-          <div
-            class="group bg-surface-light dark:bg-surface-dark rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all"
-          >
-            <div
-              class="relative h-64 overflow-hidden cursor-zoom-in"
-              onclick="
-                openLightbox(
-                  'https://www.w3schools.com/html/mov_bbb.mp4',
-                  'video',
-                )
-              "
-            >
-              <!-- Video Thumbnail/Preview -->
-              <video muted loop autoplay class="w-full h-full object-cover">
-                <source
-                  src="https://www.w3schools.com/html/mov_bbb.mp4"
-                  type="video/mp4"
-                />
-              </video>
-              <div
-                class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-              >
-                <svg
-                  class="w-12 h-12 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-2xl font-bold mb-2">Motion Graphics</h3>
-              <p class="text-gray-600 dark:text-gray-400 mb-4">
-                Click the video to expand and hear sound.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact Section -->
-      <section
-        id="contact"
-        class="bg-brand-primary text-white p-12 rounded-3xl text-center shadow-2xl dark:bg-surface-dark dark:border dark:border-gray-800"
-      >
-        <h2 class="text-4xl font-bold mb-4">Let's work together</h2>
-        <p class="text-lg opacity-90 mb-8">
-          Currently available for new projects and collaborations.
-        </p>
-        <a
-          href="mailto:hello@example.com"
-          class="bg-white text-brand-primary px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform inline-block"
-        >
-          Get in Touch
-        </a>
-      </section>
-    </main>
-
-    <!-- LIGHTBOX MODAL -->
-    <div
-      id="lightbox"
-      class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/95 p-4 md:p-10 transition-all duration-300"
-    >
-      <button
-        onclick="closeLightbox()"
-        class="absolute top-6 right-6 text-white hover:text-brand-primaryDark transition-colors z-[110]"
-      >
-        <svg
-          class="w-10 h-10"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"
-          ></path>
-        </svg>
-      </button>
-
-      <!-- Content Container -->
-      <div
-        class="max-w-5xl w-full max-h-full flex items-center justify-center"
-        onclick="event.stopPropagation()"
-      >
-        <img
-          id="lightbox-img"
-          src=""
-          class="hidden max-w-full max-h-[90vh] rounded-lg shadow-2xl"
-          alt="Expanded view"
-        />
-        <video
-          id="lightbox-video"
-          controls
-          class="hidden max-w-full max-h-[90vh] rounded-lg shadow-2xl"
-        >
-          <source src="" type="video/mp4" />
-        </video>
+        <!-- Theme Toggle -->
+        <button id="theme-toggle"
+          class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none">
+          <svg class="w-5 h-5 hidden dark:block text-brand-primaryDark" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.325 5.5l-.707-.707M6.382 6.382l-.707-.707m12.728 0l-.707.707M6.382 17.618l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+            </path>
+          </svg>
+          <svg class="w-5 h-5 block dark:hidden text-brand-primary" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+        </button>
       </div>
     </div>
+  </nav>
 
-    <footer class="p-8 text-center text-gray-500 text-sm">
-      <p>&copy; 2026 Kamile Varnelytė. Built with precision.</p>
-    </footer>
+  <main class="container mx-auto p-6 md:p-8 max-w-6xl">
+    <!-- About Section -->
+    <section id="about" class="relative mb-20 overflow-hidden">
+      <!-- Decorative Background Glow (Optional subtle touch) -->
+      <div class="absolute top-0 -left-20 w-64 h-64 bg-brand-primary/5 rounded-full blur-3xl -z-10"></div>
 
-    <script>
-      const themeToggleBtn = document.getElementById("theme-toggle");
-      const htmlElement = document.documentElement;
-      const lightbox = document.getElementById("lightbox");
-      const lightboxImg = document.getElementById("lightbox-img");
-      const lightboxVid = document.getElementById("lightbox-video");
+      <div class="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-20">
+        <!-- Image Column with Unique "Frame" Style -->
+        <div class="relative group flex-shrink-0">
+          <!-- The "Offset" Background behind the image -->
+          <div
+            class="absolute -inset-3 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl -rotate-3 group-hover:rotate-0 transition-transform duration-500 ease-out">
+          </div>
 
-      themeToggleBtn.addEventListener("click", () => {
-        htmlElement.classList.toggle("dark");
-        localStorage.theme = htmlElement.classList.contains("dark")
-          ? "dark"
-          : "light";
-      });
+          <!-- The Image with 12px (rounded-xl) radius -->
+          <div class="relative overflow-hidden rounded-xl shadow-2xl border border-white/20 dark:border-gray-800">
+            <img src="https://via.placeholder.com/400x500" alt="Profile"
+              class="w-64 h-80 object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 hover:scale-100" />
+          </div>
 
-      function openLightbox(src, type) {
-        lightboxImg.classList.add("hidden");
-        lightboxVid.classList.add("hidden");
-        lightboxVid.pause();
+          <!-- Small floating badge -->
+          <div
+            class="absolute -bottom-4 -right-4 bg-brand-primary text-white px-4 py-2 rounded-lg shadow-xl font-bold text-sm">
+            Available for Hire
+          </div>
+        </div>
 
-        if (type === "image") {
-          lightboxImg.src = src;
-          lightboxImg.classList.remove("hidden");
-        } else if (type === "video") {
-          lightboxVid.querySelector("source").src = src;
-          lightboxVid.load();
-          lightboxVid.classList.remove("hidden");
-          lightboxVid.play();
-        }
+        <!-- Text Content Column -->
+        <div class="flex-1 text-center lg:text-left">
+          <span
+            class="inline-block text-brand-primary dark:text-brand-primaryDark font-bold tracking-widest uppercase text-sm mb-3">
+            Biography
+          </span>
+          <h2 class="text-5xl lg:text-6xl font-black mb-6 leading-tight">
+            Turning Vision <br />
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-accent dark:from-brand-primaryDark dark:to-brand-accent">
+              Into Reality.
+            </span>
+          </h2>
 
-        lightbox.classList.remove("hidden");
-        lightbox.classList.add("flex");
-        document.body.classList.add("modal-open");
+          <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mb-8">
+            Hello! I'm
+            <span class="text-gray-900 dark:text-white font-semibold">Kamile Varnelytė</span>, a software architect
+            specializing in building digital products
+            that balance aesthetics with industrial-grade performance.
+          </p>
+
+          <!-- Unique Stats/Highlights Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-6 border-t border-gray-200 dark:border-gray-800">
+            <div>
+              <span class="block text-3xl font-black text-brand-primary dark:text-brand-primaryDark">5+</span>
+              <span class="text-sm text-gray-500 uppercase font-bold tracking-tighter">Years Exp.</span>
+            </div>
+            <div>
+              <span class="block text-3xl font-black text-brand-primary dark:text-brand-primaryDark">40+</span>
+              <span class="text-sm text-gray-500 uppercase font-bold tracking-tighter">Projects Done</span>
+            </div>
+            <div>
+              <span class="block text-3xl font-black text-brand-primary dark:text-brand-primaryDark">12</span>
+              <span class="text-sm text-gray-500 uppercase font-bold tracking-tighter">Global Clients</span>
+            </div>
+          </div>
+
+          <!-- Social Links/Actions -->
+          <div class="mt-10 flex flex-wrap justify-center lg:justify-start gap-4">
+            <a href="#contact"
+              class="px-8 py-3 bg-brand-primary text-white rounded-xl font-bold hover:shadow-lg hover:shadow-brand-primary/30 transition-all active:scale-95">
+              Download Resume
+            </a>
+            <div class="flex items-center space-x-4 ml-2">
+              <a href="#" class="text-gray-400 hover:text-brand-primary transition-colors">
+                <span class="sr-only">LinkedIn</span>
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                </svg>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-brand-primary transition-colors">
+                <span class="sr-only">GitHub</span>
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.744.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="mb-12">
+      <h2 class="text-4xl font-bold text-center mb-8 text-brand-primary dark:text-brand-primaryDark">
+        Skills
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <!-- Skill Card -->
+        <div
+          class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl text-center border border-gray-100 dark:border-gray-800 hover:border-brand-primary transition-all">
+          <div class="text-brand-primary dark:text-brand-primaryDark font-bold text-lg mb-2">
+            Frontend
+          </div>
+          <p class="text-sm text-gray-500">React, Vue, Tailwind</p>
+        </div>
+        <div
+          class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl text-center border border-gray-100 dark:border-gray-800 hover:border-brand-primary transition-all">
+          <div class="text-brand-primary dark:text-brand-primaryDark font-bold text-lg mb-2">
+            Backend
+          </div>
+          <p class="text-sm text-gray-500">Node, Python, Go</p>
+        </div>
+        <div
+          class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl text-center border border-gray-100 dark:border-gray-800 hover:border-brand-primary transition-all">
+          <div class="text-brand-primary dark:text-brand-primaryDark font-bold text-lg mb-2">
+            Design
+          </div>
+          <p class="text-sm text-gray-500">Figma, Adobe XD</p>
+        </div>
+        <div
+          class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl text-center border border-gray-100 dark:border-gray-800 hover:border-brand-primary transition-all">
+          <div class="text-brand-primary dark:text-brand-primaryDark font-bold text-lg mb-2">
+            Data
+          </div>
+          <p class="text-sm text-gray-500">Postgres, Redis</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="mb-12">
+      <h2 class="text-4xl font-bold text-center mb-8 text-brand-primary dark:text-brand-primaryDark">
+        Project Highlights
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- IMAGE PROJECT ITEM -->
+        <div
+          class="group bg-surface-light dark:bg-surface-dark rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+          <div class="relative h-64 overflow-hidden cursor-zoom-in" onclick="
+                openLightbox(
+                  'https://images.unsplash.com/photo-1498050108023-c5249f4df085',
+                  'image',
+                )
+              ">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              alt="Dev Project" />
+            <div
+              class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Web Application</h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Click the image to expand the view.
+            </p>
+          </div>
+        </div>
+
+        <!-- VIDEO PROJECT ITEM -->
+        <div
+          class="group bg-surface-light dark:bg-surface-dark rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+          <div class="relative h-64 overflow-hidden cursor-zoom-in" onclick="
+                openLightbox(
+                  'https://soft-pine-063f.varnelytekamile.workers.dev',
+                  'video',
+                )
+              ">
+            <!-- Video Thumbnail/Preview -->
+            <video muted loop autoplay class="w-full h-full object-cover">
+              <source src="https://soft-pine-063f.varnelytekamile.workers.dev" type="video/mp4" />
+            </video>
+            <div
+              class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z">
+                </path>
+              </svg>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Motion Graphics</h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Click the video to expand and hear sound.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="mb-12">
+      <h2 class="text-4xl font-bold text-center mb-8 text-brand-primary dark:text-brand-primaryDark">
+        Games Highlights
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- IMAGE PROJECT ITEM -->
+        <div
+          class="group bg-surface-light dark:bg-surface-dark rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+          <div class="relative h-64 overflow-hidden cursor-zoom-in" onclick="
+                openLightbox(
+                  'https://images.unsplash.com/photo-1498050108023-c5249f4df085',
+                  'image',
+                )
+              ">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              alt="Dev Project" />
+            <div
+              class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Web Application</h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Click the image to expand the view.
+            </p>
+          </div>
+        </div>
+
+        <!-- VIDEO PROJECT ITEM -->
+        <div
+          class="group bg-surface-light dark:bg-surface-dark rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+          <div class="relative h-64 overflow-hidden cursor-zoom-in" onclick="
+                openLightbox(
+                  'https://www.w3schools.com/html/mov_bbb.mp4',
+                  'video',
+                )
+              ">
+            <!-- Video Thumbnail/Preview -->
+            <video muted loop autoplay class="w-full h-full object-cover">
+              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+            </video>
+            <div
+              class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z">
+                </path>
+              </svg>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Motion Graphics</h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Click the video to expand and hear sound.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact"
+      class="bg-brand-primary text-white p-12 rounded-3xl text-center shadow-2xl dark:bg-surface-dark dark:border dark:border-gray-800">
+      <h2 class="text-4xl font-bold mb-4">Let's work together</h2>
+      <p class="text-lg opacity-90 mb-8">
+        Currently available for new projects and collaborations.
+      </p>
+      <a href="mailto:hello@example.com"
+        class="bg-white text-brand-primary px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform inline-block">
+        Get in Touch
+      </a>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightbox"
+    class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/95 p-4 md:p-10 transition-all duration-300">
+    <button onclick="closeLightbox()"
+      class="absolute top-6 right-6 text-white hover:text-brand-primaryDark transition-colors z-[110]">
+      <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    <!-- Content Container -->
+    <div class="max-w-5xl w-full max-h-full flex items-center justify-center" onclick="event.stopPropagation()">
+      <img id="lightbox-img" src="" class="hidden max-w-full max-h-[90vh] rounded-lg shadow-2xl" alt="Expanded view" />
+      <video id="lightbox-video" controls class="hidden max-w-full max-h-[90vh] rounded-lg shadow-2xl">
+        <source src="" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+
+  <footer class="p-8 text-center text-gray-500 text-sm">
+    <p>&copy; 2026 Kamile Varnelytė. Built with precision.</p>
+  </footer>
+
+  <script>
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    const htmlElement = document.documentElement;
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxVid = document.getElementById("lightbox-video");
+
+    themeToggleBtn.addEventListener("click", () => {
+      htmlElement.classList.toggle("dark");
+      localStorage.theme = htmlElement.classList.contains("dark")
+        ? "dark"
+        : "light";
+    });
+
+    function openLightbox(src, type) {
+      lightboxImg.classList.add("hidden");
+      lightboxVid.classList.add("hidden");
+      lightboxVid.pause();
+
+      if (type === "image") {
+        lightboxImg.src = src;
+        lightboxImg.classList.remove("hidden");
+      } else if (type === "video") {
+        lightboxVid.querySelector("source").src = src;
+        lightboxVid.load();
+        lightboxVid.classList.remove("hidden");
+        lightboxVid.play();
       }
 
-      function closeLightbox() {
-        lightbox.classList.add("hidden");
-        lightbox.classList.remove("flex");
-        lightboxVid.pause();
-        document.body.classList.remove("modal-open");
-      }
+      lightbox.classList.remove("hidden");
+      lightbox.classList.add("flex");
+      document.body.classList.add("modal-open");
+    }
 
-      lightbox.addEventListener("click", closeLightbox);
+    function closeLightbox() {
+      lightbox.classList.add("hidden");
+      lightbox.classList.remove("flex");
+      lightboxVid.pause();
+      document.body.classList.remove("modal-open");
+    }
 
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeLightbox();
-      });
-    </script>
-  </body>
+    lightbox.addEventListener("click", closeLightbox);
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeLightbox();
+    });
+  </script>
+</body>
+
 </html>
