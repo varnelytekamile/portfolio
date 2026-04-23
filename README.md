@@ -1,12 +1,12 @@
 # 🎬 Multimedia Portfolio
 
-## 👋 About Me
+## About Me
 
 Hi! I’m a second-year Multimedia student passionate about visual storytelling and creative media. I continuously develop my skills through university projects and personal work, always looking for new challenges and opportunities to grow.
 
 My main interests include **video editing** and **photography**, where I enjoy transforming ideas into engaging visual content.
 
-## 🚀 Goals
+## Goals
 
 I aim to:
 
@@ -14,14 +14,13 @@ I aim to:
 * Gain hands-on experience working in a **creative team**
 * Continuously improve my technical and artistic skills
 
-## 🛠️ Skills
+## Skills
 
-* 🎥 Video Editing (Adobe Premiere Pro / DaVinci Resolve / Final Cut Pro)
+* 🎥 Video Editing (DaVinci Resolve / CapCut)
 * 📸 Photography (composition, lighting, editing)
 * 🎨 Basic Graphic Design
-* 💻 Multimedia Project Development
 
-## 📂 Portfolio Projects
+## Portfolio Projects
 
 Here are some of the projects I’ve worked on:
 
@@ -31,10 +30,10 @@ Here are some of the projects I’ve worked on:
 
 *(Add links or previews here)*
 
-## 🤝 Let’s Connect
+## Let’s Connect
 
 I’m open to collaboration, internships, and creative opportunities.
 
-* 📧 Email: [your.email@example.com](mailto:your.email@example.com)
+* 📧 Email: varnelytekamile@gmail.com
 * 🌐 Portfolio: yourwebsite.com
-* 📷 Instagram / Socials: @yourhandle
+* 📷 LinkedIn: https://www.linkedin.com/in/kamil%C4%97-varnelyt%C4%97-9003853a4/
