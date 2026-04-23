@@ -15,8 +15,8 @@ I aim to:
 ## Skills
 
 * 🎥 Video Editing (DaVinci Resolve / CapCut)
-* 📸 Photography (composition, lighting, editing)
-* 🎨 Basic Graphic Design
+* 📸 Photography (composition / lighting)
+* 🎨 Basic Design (AutoCad / Figma / Adobe)
 
 ## Portfolio Projects
 
