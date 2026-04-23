@@ -1,5 +1,3 @@
-# 🎬 Multimedia Portfolio
-
 ## About Me
 
 Hi! I’m a second-year Multimedia student passionate about visual storytelling and creative media. I continuously develop my skills through university projects and personal work, always looking for new challenges and opportunities to grow.
