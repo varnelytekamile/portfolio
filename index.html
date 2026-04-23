@@ -73,20 +73,20 @@
 </head>
 
 <script>
-function openLightbox(videoId) {
-  const overlay = document.createElement("div");
-  overlay.className = "fixed inset-0 bg-black/80 flex items-center justify-center z-50";
+  function openLightbox(videoId) {
+    const overlay = document.createElement("div");
+    overlay.className = "fixed inset-0 bg-black/80 flex items-center justify-center z-50";
 
-  overlay.innerHTML = `
+    overlay.innerHTML = `
     <div class="relative w-[90%] max-w-4xl aspect-video">
       <iframe
         class="w-full h-full"
-        src="https://www.youtube.com/embed/${videoId}?autoplay=1"
+        src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0"
         frameborder="0"
         allow="autoplay; encrypted-media"
         allowfullscreen>
       </iframe>
-      
+
       <button onclick="this.closest('.fixed').remove()"
         class="absolute -top-10 right-0 text-white text-xl">
         ✕
@@ -94,8 +94,8 @@ function openLightbox(videoId) {
     </div>
   `;
 
-  document.body.appendChild(overlay);
-}
+    document.body.appendChild(overlay);
+  }
 </script>
 
 <body
