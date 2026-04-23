@@ -281,19 +281,16 @@
         <div
           class="group bg-surface-light dark:bg-surface-dark rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
 
-          <div class="relative h-64 overflow-hidden cursor-zoom-in">
+          <div class="relative h-64 overflow-hidden cursor-zoom-in" onclick="openLightbox('Mi3Wm9ZMQUo')">
 
-            <iframe class="w-full h-full"
-              src="https://www.youtube.com/embed/Mi3Wm9ZMQUo?autoplay=1&mute=1&loop=1&playlist=Mi3Wm9ZMQUo"
-              frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-            </iframe>
+            <!-- Thumbnail instead of video -->
+            <img src="https://img.youtube.com/vi/Mi3Wm9ZMQUo/hqdefault.jpg" class="w-full h-full object-cover" />
 
             <div
               class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
               <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
                 <path
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z">
-                </path>
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
               </svg>
             </div>
 
@@ -301,8 +298,8 @@
 
           <div class="p-6">
             <h3 class="text-2xl font-bold mb-2">"Kur baigiasi horizontas"</h3>
-            <p class="text-gray-600 dark:text-gray-400 mb-4">
-              Click the video to expand and hear sound.
+            <p class="text-gray-600 dark:text-gray-400">
+              Click to expand video
             </p>
           </div>
 
