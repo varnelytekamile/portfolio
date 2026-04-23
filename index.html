@@ -280,15 +280,13 @@
         <!-- PROJECT 2 -->
         <div
           class="group bg-surface-light dark:bg-surface-dark rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-          <div class="relative h-64 overflow-hidden cursor-zoom-in" onclick="
-            openLightbox(
-              'https://www.youtube.com/watch?v=Mi3Wm9ZMQUo',
-              'video'
-            )
-          ">
-            <video muted loop autoplay class="w-full h-full object-cover">
-              <source src="https://www.youtube.com/watch?v=Mi3Wm9ZMQUo" type="video/mp4" />
-            </video>
+
+          <div class="relative h-64 overflow-hidden cursor-zoom-in">
+
+            <iframe class="w-full h-full"
+              src="https://www.youtube.com/embed/Mi3Wm9ZMQUo?autoplay=1&mute=1&loop=1&playlist=Mi3Wm9ZMQUo"
+              frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+            </iframe>
 
             <div
               class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
@@ -298,6 +296,7 @@
                 </path>
               </svg>
             </div>
+
           </div>
 
           <div class="p-6">
@@ -306,6 +305,7 @@
               Click the video to expand and hear sound.
             </p>
           </div>
+
         </div>
 
         <!-- PROJECT 3-->
