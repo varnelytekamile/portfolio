@@ -1,59 +1,175 @@
-<script>
-  const themeToggleBtn = document.getElementById("theme-toggle");
-  const htmlElement = document.documentElement;
+<!doctype html>
+<html lang="en">
 
-  themeToggleBtn.addEventListener("click", () => {
-    htmlElement.classList.toggle("dark");
-    localStorage.theme = htmlElement.classList.contains("dark")
-      ? "dark"
-      : "light";
-  });
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kamile Varnelytė - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  function openLightbox(src, type) {
-    const lightbox = document.getElementById("lightbox");
-    const container = lightbox.querySelector("div");
+  <script>
+    const themeConfig = {
+      primary: "#7D1538",
+      primaryDark: "#818cf8",
+      accent: "#06b6d4",
+      bgLight: "#f9fafb",
+      bgDark: "#030712",
+      cardLight: "#ffffff",
+      cardDark: "#111827",
+      bodyFont: '"Inter", sans-serif',
+    };
 
-    container.innerHTML = ""; // clear previous content
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: themeConfig.bodyFont.split(","),
+          },
+          colors: {
+            brand: {
+              primary: themeConfig.primary,
+              primaryDark: themeConfig.primaryDark,
+              accent: themeConfig.accent,
+            },
+            background: {
+              light: themeConfig.bgLight,
+              dark: themeConfig.bgDark,
+            },
+            surface: {
+              light: themeConfig.cardLight,
+              dark: themeConfig.cardDark,
+            },
+          },
+        },
+      },
+    };
+  </script>
 
-    if (type === "youtube") {
-      container.innerHTML = `
-        <iframe 
-          class="w-full h-[80vh]"
-          src="https://www.youtube.com/embed/${src}?autoplay=1&mute=0"
-          frameborder="0"
-          allow="autoplay; encrypted-media"
-          allowfullscreen>
-        </iframe>
-      `;
-    } 
-    else if (type === "video") {
-      container.innerHTML = `
-        <video controls autoplay class="max-w-full max-h-[90vh] rounded-lg">
-          <source src="${src}" type="video/mp4" />
-        </video>
-      `;
+  <style>
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5rem;
     }
 
-    lightbox.classList.remove("hidden");
-    lightbox.classList.add("flex");
-    document.body.classList.add("modal-open");
-  }
-
-  function closeLightbox() {
-    const lightbox = document.getElementById("lightbox");
-    const container = lightbox.querySelector("div");
-
-    container.innerHTML = ""; // stop video
-
-    lightbox.classList.add("hidden");
-    lightbox.classList.remove("flex");
-    document.body.classList.remove("modal-open");
-  }
-
-  // ESC key support
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") {
-      closeLightbox();
+    .modal-open {
+      overflow: hidden;
     }
-  });
-</script>
+  </style>
+
+  <script>
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: light)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  </script>
+</head>
+
+<body class="bg-background-light text-gray-800 font-sans transition-colors duration-300 dark:bg-background-dark dark:text-gray-100">
+
+  <!-- NAV -->
+  <nav class="sticky top-0 z-40 bg-surface-light/90 backdrop-blur-sm p-4 border-b border-gray-100 dark:border-gray-800 dark:bg-surface-dark/90">
+    <div class="container mx-auto flex justify-end items-center max-w-6xl">
+      <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+        Toggle
+      </button>
+    </div>
+  </nav>
+
+  <main class="container mx-auto p-6 max-w-6xl">
+
+    <!-- PROJECT EXAMPLE (fixed YouTube) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <div class="bg-surface-light dark:bg-surface-dark rounded-2xl overflow-hidden shadow-lg">
+        <div class="relative h-64 cursor-pointer"
+          onclick="openLightbox('Mi3Wm9ZMQUo', 'youtube')">
+
+          <img src="https://img.youtube.com/vi/Mi3Wm9ZMQUo/hqdefault.jpg"
+            class="w-full h-full object-cover" />
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox"
+    onclick="closeLightbox()"
+    class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/95 p-4">
+
+    <!-- CLOSE BUTTON -->
+    <button onclick="closeLightbox()"
+      class="absolute top-6 right-6 text-white text-3xl z-[110]">
+      ✕
+    </button>
+
+    <!-- CONTENT -->
+    <div class="max-w-5xl w-full flex justify-center"
+      onclick="event.stopPropagation()">
+    </div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    const htmlElement = document.documentElement;
+
+    themeToggleBtn.addEventListener("click", () => {
+      htmlElement.classList.toggle("dark");
+      localStorage.theme = htmlElement.classList.contains("dark") ? "dark" : "light";
+    });
+
+    function openLightbox(src, type) {
+      const lightbox = document.getElementById("lightbox");
+      const container = lightbox.querySelector("div");
+
+      container.innerHTML = "";
+
+      if (type === "youtube") {
+        container.innerHTML = `
+          <iframe 
+            class="w-full h-[80vh]"
+            src="https://www.youtube.com/embed/${src}?autoplay=1"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen>
+          </iframe>
+        `;
+      } else {
+        container.innerHTML = `
+          <video controls autoplay class="max-w-full max-h-[90vh]">
+            <source src="${src}" type="video/mp4" />
+          </video>
+        `;
+      }
+
+      lightbox.classList.remove("hidden");
+      lightbox.classList.add("flex");
+      document.body.classList.add("modal-open");
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById("lightbox");
+      const container = lightbox.querySelector("div");
+
+      container.innerHTML = "";
+
+      lightbox.classList.add("hidden");
+      lightbox.classList.remove("flex");
+      document.body.classList.remove("modal-open");
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeLightbox();
+    });
+  </script>
+
+</body>
+</html>
