@@ -597,6 +597,7 @@
     }
 
     const photoGallery = [
+      "assets/9.JPG",
       "assets/4.jpg",
       "assets/7.jpg",
       "assets/DSC_5441.jpg",
@@ -610,27 +611,26 @@
 
     function openPhotoGallery(index = 0) {
       currentPhotoIndex = index;
-      renderPhotoLightbox();
-    }
 
-    function renderPhotoLightbox() {
       const lightbox = document.getElementById("lightbox");
-      const container = lightbox.querySelector("div");
+      const container = document.getElementById("lightbox-content");
 
       container.innerHTML = `
-    <div class="relative flex items-center justify-center">
-      
-      <!-- LEFT -->
-      <button onclick="prevPhoto()" class="absolute left-4 text-white text-4xl">‹</button>
+    <div class="relative flex items-center justify-center w-full">
 
-      <!-- IMAGE -->
-      <img src="${photoGallery[currentPhotoIndex]}" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl" />
+      <button id="prevBtn" class="absolute left-4 text-white text-4xl z-10">‹</button>
 
-      <!-- RIGHT -->
-      <button onclick="nextPhoto()" class="absolute right-4 text-white text-4xl">›</button>
+      <img id="galleryImage" src="${photoGallery[currentPhotoIndex]}" 
+        class="max-w-full max-h-[90vh] rounded-lg shadow-2xl" />
+
+      <button id="nextBtn" class="absolute right-4 text-white text-4xl z-10">›</button>
 
     </div>
   `;
+
+      // Attach events AFTER rendering
+      document.getElementById("nextBtn").onclick = nextPhoto;
+      document.getElementById("prevBtn").onclick = prevPhoto;
 
       lightbox.classList.remove("hidden");
       lightbox.classList.add("flex");
@@ -638,15 +638,19 @@
 
     function nextPhoto() {
       currentPhotoIndex = (currentPhotoIndex + 1) % photoGallery.length;
-      renderPhotoLightbox();
+      updateImage();
     }
 
     function prevPhoto() {
       currentPhotoIndex =
         (currentPhotoIndex - 1 + photoGallery.length) % photoGallery.length;
-      renderPhotoLightbox();
+      updateImage();
     }
 
+    function updateImage() {
+      const img = document.getElementById("galleryImage");
+      img.src = photoGallery[currentPhotoIndex];
+    }
   </script>
 
 
